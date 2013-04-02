@@ -1,9 +1,15 @@
 package org.pnm.dun.model;
 
 
-public class AltFactory {
+public class UnitFactory {
 
 
+	public static Unit grunt(){
+		Unit unit = new Unit("Grunt", "test.png", 7, 5, 5, 11, 13, 4);
+		unit.addWep(new Weapon("Club",4,3));
+		return unit;
+	}
+	
 	public static Unit will(){
 		Unit unit = new Unit("Will", "test.png", 12, 5, 5, 10, 18, 7);
 		unit.addWep(new Weapon("Longsword",4,5));
@@ -22,15 +28,15 @@ public class AltFactory {
 	}
 	
 	public static Unit cass(){
-		Unit unit = new Unit("Cassie", "test.png", 8, 4, 1, 16, 10, 11);
-		unit.addActive(new Active(ActiveType.CHARM,2,10));
+		Unit unit = new Unit("Cassie", "test.png", 8, 4, 1, 15, 8, 11);
+		unit.addActive(new Active(ActiveType.CHARM,1,10));
 		unit.addPassive(new Passive(PassiveType.DAZING_TOUCH));
 		unit.addWep(new Weapon("Touch",0,0));
 		return unit;
 	}
 	
 	public static Unit fel(){
-		Unit unit = new Unit("Felicity", "test.png", 10, 6, 4, 15, 13, 6);
+		Unit unit = new Unit("Felicity", "test.png", 10, 6, 4, 13, 13, 6);
 		unit.addWep(new Weapon("Longbow",3,5,10));
 		unit.addWep(new Weapon("Shortsword",2,6));
 		unit.addActive(ActiveType.CALL_SHOT);
@@ -39,7 +45,7 @@ public class AltFactory {
 	}
 	
 	public static Unit cat(){
-		Unit unit = new Unit("Cat", "test.png", 10, 7, 5, 16, 10, 5);
+		Unit unit = new Unit("Cat", "test.png", 10, 7, 5, 14, 10, 5);
 		unit.addWep(new Weapon("Claw",4,4));
 		unit.addWep(new Weapon("Claw",4,4));
 		unit.addActive(ActiveType.TWIN_STRIKE);

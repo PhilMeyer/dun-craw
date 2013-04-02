@@ -31,6 +31,11 @@ public class Unit{
 		this.imagePath = imagePath;
 	}
 	
+	public Weapon getDefaultWeapon(){
+		Weapon weapon = weapons.get(0);
+		return weapon;
+	}
+	
 	public int getDefaultWepPow(){
 		Weapon weapon = weapons.get(0);
 		int pow = 0;
