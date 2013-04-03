@@ -7,7 +7,7 @@ public class StandardDamStrategy implements DamResolveStrategy {
 	@Override
 	public int resolve(Unit a, Unit d, int pow) {
 		int damRoll = Sim.d2.roll();
-		int ps = pow + a.str;
+		int ps = pow;
 		int calcDam = ps + damRoll - d.arm;
 		if(calcDam < 0){
 			calcDam = 0;

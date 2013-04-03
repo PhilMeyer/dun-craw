@@ -17,5 +17,9 @@ public class Passive {
 		this.value = value;
 		this.rng = rng;
 	}
+
 	
+	public String toString(){
+		return type.toString();
+	}
 }

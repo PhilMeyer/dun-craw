@@ -23,4 +23,18 @@ public class Location {
 		System.out.println(new Location(0, 14));
 	}
 	
+	public boolean equals(Object o){
+		if(o instanceof Location){
+			Location test = (Location)o;
+			return x == test.x && y == test.y;
+		}
+		return false;
+	}
+
+	public int compareTo(Location o) {
+		Integer sum = x + y;
+		Integer oSum = o.x + o.y;
+		return sum.compareTo(oSum);
+	}
+	
 }

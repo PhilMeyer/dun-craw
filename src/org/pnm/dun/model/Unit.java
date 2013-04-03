@@ -1,11 +1,12 @@
 package org.pnm.dun.model;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Unit{
 
-	public final int str, def, arm, spd, cmd;
+	public final int def, arm, spd, cmd;
 	int mhp = 1;
 	int hp = 1;
 	int dr;
@@ -18,11 +19,13 @@ public class Unit{
 	List<Weapon> weapons = new ArrayList<>();
 	public final String imagePath;
 	
-
-	public Unit(String name, String imagePath, int mhp, int spd, int str, int def, int arm, int cmd){
+	public static enum Side{PLAYER, MONSTER}
+	
+	public Side side = Side.PLAYER;
+	
+	public Unit(String name, String imagePath, int mhp, int spd, int def, int arm, int cmd){
 		this.name = name;
 		this.spd = spd;
-		this.str = str;
 		this.def = def;
 		this.arm = arm;
 		this.cmd = cmd;
@@ -47,10 +50,6 @@ public class Unit{
 
 	public void addWep(Weapon weapon) {
 		weapons.add(weapon);
-	}
-	
-	public String toString(){
-		return name;
 	}
 
 	public String getName() {
@@ -87,5 +86,43 @@ public class Unit{
 		for(Active a : toAdd){
 			this.actives.add(a);
 		}
+	}
+	
+	public String toString(){
+		
+		return name;
+	}
+	
+	public String toVerboseString(){
+		String format = "{0}  MHP={1} SPD={2} POW={3} ACC={4} DEF={5} ARM={6} CMD={7}";
+		Weapon w = getDefaultWeapon();
+		String stats = MessageFormat.format(format, name, mhp, spd, w.pow, w.acc, def, arm, cmd);
+		StringBuilder sb = new StringBuilder(stats);
+		sb.append("\n\t");
+		for(Active active : actives){
+			sb.append(active);
+		}
+		sb.append("\n\t");
+		for(Passive passive : passives){
+			sb.append(passive);
+		}
+		return sb.toString();
+	}
+
+	public boolean hasPassive(PassiveType type) {
+		for(Passive p : passives){
+			if(p.type == type){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public Side getSide() {
+		return side;
+	}
+
+	public void setSide(Side side) {
+		this.side = side;
 	}
 }

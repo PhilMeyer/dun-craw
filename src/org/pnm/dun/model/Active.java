@@ -18,4 +18,8 @@ public class Active {
 		this.rng = rng;
 	}
 	
+	public String toString(){
+		return type.toString();
+	}
+	
 }

@@ -1,0 +1,86 @@
+
+
+Hawk
+	MHP:  Fair
+	SPD:  Good
+	ARM:  Fair
+	DEF:  High
+	ACC:  High
+	POW:  Low	
+		[-1] Twin_Strike: Two attacks.
+		[-1] Darting_Strike:  Attack, then can shift one square.
+		Flanker:  Damage bonus when flanking.	 
+
+Siege
+	MHP:  Good
+	SPD:  Low
+	ARM:  Good
+	DEF:  Low
+	ACC:  Average
+	POW:  High	
+		[-1] Slam: On hit, target gets pushed.
+		[-2] Power_Attack:  +3 damage
+		Sturdy: ?
+
+Fang
+	MHP:  High
+	SPD:  Fair
+	ARM:  Average
+	DEF:  Fair
+	ACC:  Fair
+	POW:  Very High	
+		[-1] Cleave: Attacks multiple enemies.
+		?: 
+		Tough: Damage resistance
+
+Will
+	MHP:  Average
+	SPD:  Average
+	ARM:  High
+	DEF:  Fair
+	ACC:  Good
+	POW:  Average	
+		Heal: Heals an ally
+		?: 
+		Aura:  Allies in aura get +1 ARM.
+
+Dhovanu
+	MHP:  Average
+	SPD:  Good
+	ARM:  Average
+	DEF:  Good
+	ACC:  Average (RNG)
+	POW:  Fair    (RNG)
+		[-2] Deadly_Aim: Increased damage.
+		[-1] Crippling_Shot: Target is slowed.
+		Evade: When attacked, can shift away after attack is resolved.	
+
+Zaal
+	MHP:  Low
+	SPD:  Average
+	ARM:  Low
+	DEF:  Fair
+	ACC:  Average
+	POW:  Zero
+		Fireball: Area of effect attack
+		?:
+		Crippling Touch: Units hit take -2 arm, def, pow	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
