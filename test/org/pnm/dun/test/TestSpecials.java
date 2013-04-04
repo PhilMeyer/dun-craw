@@ -16,7 +16,7 @@ import org.pnm.dun.unit.Unit;
 public class TestSpecials extends TestCase{
 
 	private static final int RUNS = 3000;
-	private static final Unit G1 = MonsterFactory.generic(14,10,5,9);
+	private static final Unit G1 = MonsterFactory.generic(9,9,5,9);
 	private static final Unit G2 = MonsterFactory.generic(12,13,5,9);
 	private static final Unit G3 = MonsterFactory.generic(12,13,5,9);
 	private static final Unit D = HeroFactory.dhov();
@@ -34,9 +34,9 @@ public class TestSpecials extends TestCase{
 		e.place(S, 5,6);
 		e.place(F, 0,0);
 		e.place(G1, 0,1);
-		e.place(G2, 1,0);
-		e.place(G3, 1,1);
-		re.testMode = true;
+		//e.place(G2, 1,0);
+		//e.place(G3, 1,1);
+		RulesEngine.testMode = true;
 	}	
 	
 
@@ -48,31 +48,29 @@ public class TestSpecials extends TestCase{
 	
 	public void testC(){
 		calcAverage(ActiveType.CLEAVE, F, G1);
-		dumpMap();
 	}
 	
 	public void testBS(){
 		calcAverage(ActiveType.BASIC, S, G1);
-		dumpMap();
 	}
 	
 	public void testBF(){
 		calcAverage(ActiveType.BASIC, F, G1);
-		dumpMap();
 	}
 	
 	public void testBH(){
 		calcAverage(ActiveType.BASIC, H, G1);
-		dumpMap();
 	}
 	
 	public void testTS(){
 		calcAverage(ActiveType.TWIN_STRIKE, H, G1);
-		dumpMap();
 	}
 	
 	public void testPA(){
 		calcAverage(ActiveType.POWER, S, G1);
+	}
+	
+	public void testDump(){
 		dumpMap();
 	}
 

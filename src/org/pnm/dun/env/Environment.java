@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.pnm.dun.engine.AttackEngine;
+import org.pnm.dun.engine.RulesEngine;
 import org.pnm.dun.unit.Unit;
 import org.pnm.dun.unit.Unit.Side;
 import org.pnm.dun.unit.Weapon;
@@ -203,7 +204,7 @@ public class Environment {
 		int rangeMod = 0;
 		if (distance > SQRT2) {
 			rangeMod = (int) Math.floor(distance / wep.rng);
-			AttackEngine.log("Range is {0} giving mod of -{1}.", distance, rangeMod);
+			RulesEngine.log("Range is {0} giving mod of -{1}.", distance, rangeMod);
 		}
 		return 0;
 	}

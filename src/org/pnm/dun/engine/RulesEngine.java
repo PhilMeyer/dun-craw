@@ -1,5 +1,6 @@
 package org.pnm.dun.engine;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 import org.pnm.dun.env.Environment;
@@ -13,7 +14,7 @@ public class RulesEngine {
 
 	private Environment e;
 	private AttackEngine attackEngine;
-	public boolean testMode;
+	public static boolean testMode;
 
 	public RulesEngine(Environment e) {
 		this.e = e;
@@ -21,7 +22,7 @@ public class RulesEngine {
 	}
 
 	public int resolve(Unit a, Unit t, ActiveType type) {
-		AttackEngine.log("{0} using {1} on {2}.", a, type, t);
+		log("{0} using {1} on {2}.", a, type, t);
 		switch (type) {
 		case BASIC:
 			return basicAttack(a, t);
@@ -73,7 +74,7 @@ public class RulesEngine {
 	}
 
 	public int resolve(Unit a, int atkMod, int damMod, Unit... targs) {
-		return resolve(a,atkMod, damMod, a.getDefaultWeapon(), targs);
+		return resolve(a, atkMod, damMod, a.getDefaultWeapon(), targs);
 	}
 
 	public int resolve(Unit a, int atkMod, int damMod, Weapon w, Unit... targs) {
@@ -97,6 +98,11 @@ public class RulesEngine {
 			}
 		}
 		return false;
+	}
+
+	public static void log(String format, Object... args) {
+		if (!testMode)
+			System.out.println(MessageFormat.format(format, args));
 	}
 
 }
