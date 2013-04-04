@@ -4,9 +4,10 @@ import java.util.Random;
 
 public class Die {
 
-	public static final Die d3 = new Die(3, 6);
-	public static final Die d2 = new Die(2, 6);
-	public static final Die d1 = new Die(1, 6);
+	public static final Die _3d6 = new Die(3, 6);
+	public static final Die _2d6 = new Die(2, 6);
+	public static final Die _1d6 = new Die(1, 6);
+	public static final Die _1d4 = new Die(1, 4);
 	
 	int numSides;
 	int numDie;
@@ -61,9 +62,9 @@ public class Die {
 
 	public static Die d(int n) {
 		switch(n){
-			case 1:	return d1;
-			case 2:	return d2;
-			case 3:	return d3;
+			case 1:	return _1d6;
+			case 2:	return _2d6;
+			case 3:	return _3d6;
 		}
 		return new Die(n);
 	}

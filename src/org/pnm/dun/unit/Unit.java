@@ -4,14 +4,11 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.pnm.dun.unit.Unit.Side;
-
 public class Unit{
 
-	public final int def, arm, spd, cmd;
+	public final int def, arm, spd, res;
 	public final int mhp;
 	public int hp = 1;
-	int dr;
 	public int base = 1;
 	String name;
 	
@@ -25,12 +22,12 @@ public class Unit{
 	
 	public Side side = Side.PLAYER;
 	
-	public Unit(String name, String imagePath, int mhp, int spd, int def, int arm, int cmd){
+	public Unit(String name, String imagePath, int mhp, int spd, int def, int arm, int res){
 		this.name = name;
 		this.spd = spd;
 		this.def = def;
 		this.arm = arm;
-		this.cmd = cmd;
+		this.res = res;
 		this.mhp = mhp;
 		this.hp = mhp;
 		this.imagePath = imagePath;
@@ -60,10 +57,6 @@ public class Unit{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public void setDamResist(int dr) {
-		this.dr = dr;
 	}
 
 	public void addPassive(PassiveType... toAdd) {
@@ -96,9 +89,9 @@ public class Unit{
 	}
 	
 	public String toVerboseString(){
-		String format = "{0}  [{1}/{8}] SPD={2} POW={3} ACC={4} DEF={5} ARM={6} CMD={7}";
+		String format = "{0}  [{1}/{8}] SPD={2} POW={3} ACC={4} DEF={5} ARM={6} RES={7}";
 		Weapon w = getDefaultWeapon();
-		String stats = MessageFormat.format(format, name, mhp, spd, w.pow, w.acc, def, arm, cmd, hp);
+		String stats = MessageFormat.format(format, name, mhp, spd, w.pow, w.acc, def, arm, res, hp);
 		StringBuilder sb = new StringBuilder(stats);
 		sb.append("\n\t");
 		for(Active active : actives){

@@ -229,7 +229,7 @@ public class Environment {
 		return list;
 	}
 
-	private Unit getUnitAt(Location loc) {
+	public Unit getUnitAt(Location loc) {
 		return getUnitAt(loc.x, loc.y);
 	}
 

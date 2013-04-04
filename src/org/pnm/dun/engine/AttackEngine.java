@@ -1,7 +1,5 @@
 package org.pnm.dun.engine;
 
-import java.text.MessageFormat;
-
 import org.pnm.dun.unit.HeroFactory;
 import org.pnm.dun.unit.MonsterFactory;
 import org.pnm.dun.unit.Unit;
@@ -10,7 +8,7 @@ import org.pnm.dun.unit.Weapon;
 public class AttackEngine {
 
 	public int resolve(int atkRoll, Unit a, Weapon weapon, int atkMods, int damMods, Unit d) {
-		boolean hit = hit(a, d, atkRoll, atkMods);
+		boolean hit = hit(a, d, weapon, atkRoll, atkMods);
 		int calcDam = 0;
 		if (hit) {
 			calcDam = calculateDamage(a, d, weapon, damMods);
@@ -42,11 +40,10 @@ public class AttackEngine {
 		return calcDam;
 	}
 
-	public boolean hit(Unit a, Unit d, int roll, int mods) {
+	public boolean hit(Unit a, Unit d, Weapon wep, int roll, int mods) {
 		if(roll == 12){
 			return true;
 		}
-		Weapon wep = a.getDefaultWeapon();
 		int modAtk = wep.acc + mods;
 		int totalAtk = modAtk + roll;
 		boolean hit = d.def <= totalAtk;

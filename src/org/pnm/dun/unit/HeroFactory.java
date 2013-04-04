@@ -23,7 +23,6 @@ public class HeroFactory {
 	 */
 	public static Unit siege(){
 		Unit unit = new Unit("Siege", "C_W_Siege", 15, 5, 12, 14, 4);
-		unit.setDamResist(1);
 		unit.addWep(new Weapon("Warhammer",10,5));
 		unit.addActive(ActiveType.SLAM);
 		unit.addActive(ActiveType.POWER);
@@ -37,7 +36,6 @@ public class HeroFactory {
 	 */
 	public static Unit fang(){
 		Unit unit = new Unit("Fang", "O_S_WhiteMane", 15, 5, 12, 14, 4);
-		unit.setDamResist(1);
 		unit.base=2;
 		unit.addWep(new Weapon("Greataxe",11,4));
 		unit.addActive(ActiveType.CLEAVE);
