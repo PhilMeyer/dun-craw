@@ -17,12 +17,13 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import org.apache.log4j.Logger;
-import org.pnm.dun.Environment;
-import org.pnm.dun.model.PassiveType;
-import org.pnm.dun.model.Unit;
-import org.pnm.dun.model.Unit.Side;
+import org.pnm.dun.env.Environment;
+import org.pnm.dun.unit.PassiveType;
+import org.pnm.dun.unit.Unit;
+import org.pnm.dun.unit.Unit.Side;
 import org.pnm.dun.util.Location;
 
+@SuppressWarnings("serial")
 public class Display extends JPanel {
 
 	Environment environment;
@@ -85,15 +86,12 @@ public class Display extends JPanel {
 		}
 		Image sprite = getImage(unit.imagePath);
 		int w = sprite.getWidth(null);
-		//g.drawImage(sprite, drawX - w / 2, drawY - w / 2, null);
 		
 		double rotationRequired = Math.toRadians(environment.getOrientation(unit));
 		double locationX = w / 2;
 		double locationY = w / 2;
 		AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
 		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-
-		// Drawing the rotated image at the required drawing locations
 		g.drawImage(op.filter((BufferedImage)sprite, null), drawX- w / 2, drawY - w / 2, null);
 	}
 
@@ -133,28 +131,6 @@ public class Display extends JPanel {
 		}
 	}
 
-	private void drawSelected(Graphics g) {
-		if (selected != null) {
-			Image aura;
-			Location loc = environment.getLocation(selected);
-			int drawX = loc.x * squareSize+ squareSize/2;
-			int drawY = loc.y* squareSize+ squareSize/2;
-			if(selected.base == 3){
-				drawX += squareSize/2;
-				drawY += squareSize/2;
-			}
-			if(selected.hasPassive(PassiveType.AURA)){
-				aura = getImage("aura/120mm_Aura_Yellow");
-			}
-			else{
-				String color = selected.side == Side.MONSTER ? "Red" : "Green";
-				String auraPath = "aura/"+selected.base + "_Aura_"+color;
-				aura = getImage(auraPath);
-			}
-			int w = aura.getWidth(null);
-			g.drawImage(aura, drawX - w / 2, drawY - w / 2, null);
-		}
-	}
 
 	private Image getImage(String name) {
 		Image aura = null;

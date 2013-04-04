@@ -17,5 +17,13 @@ public class ActionSet {
 	public void useStandard() {
 		usedStandard = true;
 	}
+
+	public boolean hasStandard() {
+		return !usedStandard;
+	}
+
+	public boolean hasMove() {
+		return !usedMove || !usedStandard;
+	}
 	
 }

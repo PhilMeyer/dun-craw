@@ -1,71 +1,70 @@
 
 
-Hawk
+Hawk [Swashbuckler, Sword+Sword]
 	MHP:  Fair
 	SPD:  Good
 	ARM:  Fair
 	DEF:  High
 	ACC:  High
-	POW:  Low	
+	POW:  Fair	
 		[-1] Twin_Strike: Two attacks.
 		[-1] Darting_Strike:  Attack, then can shift one square.
-		Flanker:  Damage bonus when flanking.	 
+		Mobility:  +2 def vs OAs 
 
-Siege
+Quake [Fighter, Warhammer]
 	MHP:  Good
 	SPD:  Low
 	ARM:  Good
 	DEF:  Low
-	ACC:  Average
+	ACC:  Good
 	POW:  High	
 		[-1] Slam: On hit, target gets pushed.
-		[-2] Power_Attack:  +3 damage
-		Sturdy: ?
+		[-1] Power_Attack:  +2 damage
+		Alert: No bonus for flanking him.
 
-Fang
+Fang [Barbarian, Greataxe]
 	MHP:  High
 	SPD:  Fair
 	ARM:  Average
 	DEF:  Fair
-	ACC:  Fair
+	ACC:  Average
 	POW:  Very High	
-		[-1] Cleave: Attacks multiple enemies.
-		?: 
-		Tough: Damage resistance
+		[-1] Cleave: Attacks multiple enemies.  One roll.
+		Roar:  Nearby enemies get -1 acc and -1 pow
+		Magic_Resistance:  2 DR vs mag
 
-Will
+Will [Cleric, Sword+Shield]  
 	MHP:  Average
 	SPD:  Average
 	ARM:  High
 	DEF:  Fair
-	ACC:  Good
-	POW:  Average	
+	ACC:  Average
+	POW:  Fair	
 		Heal: Heals an ally
-		?: 
+		Restoration:  Removes one negative condition 
 		Aura:  Allies in aura get +1 ARM.
 
-Dhovanu
+Dhovanu  [Ranger, Longbow]
 	MHP:  Average
 	SPD:  Good
 	ARM:  Average
 	DEF:  Good
 	ACC:  Average (RNG)
 	POW:  Fair    (RNG)
-		[-2] Deadly_Aim: Increased damage.
+		[-1] Deadly_Aim: +2 damage.
 		[-1] Crippling_Shot: Target is slowed.
 		Evade: When attacked, can shift away after attack is resolved.	
 
-Zaal
-	MHP:  Low
+Zaal  [Pyromancer, Staff]
+	MHP:  Fair
 	SPD:  Average
 	ARM:  Low
 	DEF:  Fair
-	ACC:  Average
-	POW:  Zero
-		Fireball: Area of effect attack
-		?:
-		Crippling Touch: Units hit take -2 arm, def, pow	
-
+	ACC:  Low
+	POW:  Low
+		Fireball: Area of effect fire attack
+		Flaming_Weapons:  Buffs units with fire damage on their melee attacks.
+		Fire_Shield: Units that hit this unit take fire damage.
 
 
 

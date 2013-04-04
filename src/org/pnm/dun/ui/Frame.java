@@ -2,7 +2,7 @@ package org.pnm.dun.ui;
 
 import javax.swing.JFrame;
 
-import org.pnm.dun.Environment;
+import org.pnm.dun.env.Environment;
 
 public class Frame extends JFrame{
 
