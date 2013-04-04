@@ -19,7 +19,9 @@ public class GeometryUtil {
 	}
 	
 	public static int getAngle(Location l1, Location l2){
-		return getAngle(l1.x, l1.y, l2.x, l2.y);
+		int angle = getAngle(l1.x, l1.y, l2.x, l2.y);
+		//System.out.println("The angle between "+l1+" and "+l2+" is "+angle);
+		return angle;
 	}
 
 	public static Location getPointWithAngleAndRadius(Location c, int a, double r) {
@@ -30,10 +32,11 @@ public class GeometryUtil {
 	
 	
 	public static void main(String[] args) {
-		Location c = new Location(0, 0);
-		for(int a = 0; a < 360; a+=5){
-			test1(c, a);
-		}
+		//Location a1 = new Location(5, 0);
+		//Location a2 = new Location(0, 0);
+		//for(int a = 0; a < 360; a+=5){
+		//	test1(c, a);
+		//}
 	}
 
 	protected static void test1(Location c, int a) {

@@ -8,7 +8,7 @@ public class HeroFactory {
 	 * Support/Healer, decent in melee.
 	 */
 	public static Unit will(){
-		Unit unit = new Unit("Will", "P_U_KnightsErrant", 12, 5, 10, 18, 7); 
+		Unit unit = new Unit("Will", "P_U_KnightsErrant", 12, 5, 10, 17, 7); 
 		// P_U_KnightsErrant
 		// C_U_PrecursorKnightOfficer
 		unit.addWep(new Weapon("Longsword",9,5));
@@ -70,7 +70,7 @@ public class HeroFactory {
 	}
 	
 	public static Unit hawk(){
-		Unit unit = new Unit("Hawk", "M_S_Hawk", 10, 7, 14, 10, 5);
+		Unit unit = new Unit("Hawk", "M_S_Hawk", 10, 7, 15, 10, 5);
 		unit.addWep(new Weapon("Shortsword",8,5));
 		unit.addWep(new Weapon("Shortsword",8,5));
 		unit.addActive(ActiveType.TWIN_STRIKE);

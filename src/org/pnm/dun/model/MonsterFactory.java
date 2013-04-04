@@ -11,8 +11,8 @@ public class MonsterFactory {
 	}
 	
 	public static Unit grunt(){
-		Unit unit = new Monster("Grunt", "T_U_KrielWarrior", 7, 5, 11, 13, 4);
-		unit.addWep(new Weapon("Club",4,3));
+		Unit unit = new Monster("Grunt", "T_U_KrielWarrior", 7, 4, 12, 13, 4);
+		unit.addWep(new Weapon("Club",9,4));
 		return unit;
 	}
 	

@@ -52,7 +52,7 @@ public class Display extends JPanel {
 				selected = u;
 				if (selected != null) {
 					log.debug(u);
-					System.out.println(selected);
+					System.out.println(selected.toVerboseString());
 					System.out.println(environment.getAdjacentEnemies(selected));
 				}
 				if(selected != previous){
@@ -67,7 +67,9 @@ public class Display extends JPanel {
 		super.paintComponent(g);
 		drawGrid(g);
 		g.setColor(Color.GRAY);
-		drawSelected(g);
+		//drawSelected(g);
+		drawAura(g, environment.getActor());
+		drawAura(g, selected);
 		for (Entry<Unit, Location> entry : environment.getUnitEntries()) {
 			drawUnit(g, entry);
 		}
@@ -102,6 +104,32 @@ public class Display extends JPanel {
 		}
 		for(int x = 0 ; x < getWidth(); x+=squareSize){
 			g.drawLine(x, 0, x, getHeight());
+		}
+	}
+
+	private void drawAura(Graphics g, Unit unit) {
+		if (unit != null) {
+			Image aura;
+			Location loc = environment.getLocation(unit);
+			if(loc == null){
+				return;
+			}
+			int drawX = loc.x * squareSize+ squareSize/2;
+			int drawY = loc.y* squareSize+ squareSize/2;
+			if(unit.base == 3){
+				drawX += squareSize/2;
+				drawY += squareSize/2;
+			}
+			if(unit.hasPassive(PassiveType.AURA)){
+				aura = getImage("aura/120mm_Aura_Yellow");
+			}
+			else{
+				String color = unit.side == Side.MONSTER ? "Red" : "Green";
+				String auraPath = "aura/"+unit.base + "_Aura_"+color;
+				aura = getImage(auraPath);
+			}
+			int w = aura.getWidth(null);
+			g.drawImage(aura, drawX - w / 2, drawY - w / 2, null);
 		}
 	}
 

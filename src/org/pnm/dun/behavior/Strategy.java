@@ -5,6 +5,6 @@ import org.pnm.dun.model.Unit;
 
 public interface Strategy {
 
-	Action getAction(Environment e, Unit u);
+	Action getAction(Environment e, Unit u, ActionSet actionSet);
 
 }

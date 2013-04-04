@@ -7,8 +7,8 @@ import java.util.List;
 public class Unit{
 
 	public final int def, arm, spd, cmd;
-	int mhp = 1;
-	int hp = 1;
+	public final int mhp;
+	public int hp = 1;
 	int dr;
 	public int base = 1;
 	String name;
@@ -94,9 +94,9 @@ public class Unit{
 	}
 	
 	public String toVerboseString(){
-		String format = "{0}  MHP={1} SPD={2} POW={3} ACC={4} DEF={5} ARM={6} CMD={7}";
+		String format = "{0}  [{1}/{8}] SPD={2} POW={3} ACC={4} DEF={5} ARM={6} CMD={7}";
 		Weapon w = getDefaultWeapon();
-		String stats = MessageFormat.format(format, name, mhp, spd, w.pow, w.acc, def, arm, cmd);
+		String stats = MessageFormat.format(format, name, mhp, spd, w.pow, w.acc, def, arm, cmd, hp);
 		StringBuilder sb = new StringBuilder(stats);
 		sb.append("\n\t");
 		for(Active active : actives){

@@ -37,4 +37,9 @@ public class Location {
 		return sum.compareTo(oSum);
 	}
 	
+	@Override
+	public int hashCode(){
+		return x;
+	}
+	
 }

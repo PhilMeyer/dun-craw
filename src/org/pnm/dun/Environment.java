@@ -19,6 +19,7 @@ public class Environment {
 	Map<Unit, Location> locations = new HashMap<>();
 	Map<Unit, List<Location>> occupations = new HashMap<>();
 	Map<Unit, Integer> orientations = new HashMap<>();
+	private Unit actor;
 	
 
 	public Set<Entry<Unit, Location>> getUnitEntries() {
@@ -47,10 +48,14 @@ public class Environment {
 	}
 
 	public void place(Unit unit, Location location) {
-		place(unit, location, 0);
+		place(unit, location, null);
 	}
 
 	public void place(Unit unit, Location location, Integer orientation) {
+		Integer currentOrientation = orientations.get(unit);
+		if(orientation == null){
+			orientation = (currentOrientation != null) ? currentOrientation : 0;
+		}
 		locations.put(unit, location);
 		List<Location> occupationList = new ArrayList<>();
 		occupationList.add(location);
@@ -147,8 +152,8 @@ public class Environment {
 	}
 
 	public List<Location> getShortestPath(Unit actor, Unit target) {
-		Pathing pathing = new Pathing(this);
-		return pathing.getShortestPath(actor, target);
+		Pathing pathing = new Pathing(this, actor, target);
+		return pathing.getShortestPath();
 	}
 
 	private void pruneOccupied(List<Location> adjacent) {
@@ -172,6 +177,36 @@ public class Environment {
 		pruneOccupied(adjacent);
 		//pruneOccupied(adjacent);
 		return adjacent;
+	}
+
+	public void orient(Unit u, int angle) {
+		//System.out.println("Orienting "+u+" at "+angle);
+		orientations.put(u, angle);
+	}
+
+	public void setCurrentlyActing(Unit actor) {
+		this.actor=actor;
+	}
+
+	public Unit getActor() {
+		return actor;
+	}
+
+	public List<Location> getAdjacent(Location loc) {
+		List<Location> adjacent = new ArrayList<>();
+		adjacent.add(new Location(loc.x-1, loc.y));
+		adjacent.add(new Location(loc.x+1, loc.y));
+		adjacent.add(new Location(loc.x, loc.y-1));
+		adjacent.add(new Location(loc.x, loc.y+1));
+		adjacent.add(new Location(loc.x-1, loc.y-1));
+		adjacent.add(new Location(loc.x+1, loc.y+1));
+		adjacent.add(new Location(loc.x+1, loc.y-1));
+		adjacent.add(new Location(loc.x-1, loc.y+1));
+		return adjacent;
+	}
+
+	public boolean isStillAlive(Unit u) {
+		return locations.get(u) != null;
 	}
 
 //	public Location getStep(Unit actor, Unit target) {
